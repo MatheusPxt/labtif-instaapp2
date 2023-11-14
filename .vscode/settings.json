@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/7fea625a-6c0a-401a-80a6-f580ec406fe9/resourceGroups/instaapp-kaminer_group/providers/Microsoft.Web/sites/instaapp-km",
+    "appService.deploySubpath": "."
+}
