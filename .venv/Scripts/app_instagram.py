@@ -11,7 +11,7 @@ app.config['DEBUG'] = True
 
 usuarios_autorizados = ["usuario1", "usuario2", "usuario3"]
 
-@app.route('/')
+@app.route('/.venv/Scripts')
 def index():
     return render_template('index.html')
 
