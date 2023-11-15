@@ -1,17 +1,14 @@
 from flask import Flask, render_template, request, redirect, url_for
-from flask import Flask
-app = Flask(__name__, static_folder='static', static_url_path='')
 import requests
 import csv
-import secrets
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='')
 
 app.config['DEBUG'] = True
 
 usuarios_autorizados = ["usuario1", "usuario2", "usuario3"]
 
-@app.route('/.venv/Scripts')
+@app.route('/')
 def index():
     return render_template('index.html')
 
