@@ -7,7 +7,7 @@ name: Build and deploy Python app to Azure Web App - labtif-instaapp
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 jobs:
@@ -28,7 +28,7 @@ jobs:
           source venv/bin/activate
       
       - name: Install dependencies
-        run: pip install -r path/to/.venv/Scripts/requirements.txt
+        run: pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'labtif-instaapp'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3BB9B14ECA504EEC8A14B89FECF868AB }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_45638E8B91984ED7A8F9850ADEA15C6B }}
