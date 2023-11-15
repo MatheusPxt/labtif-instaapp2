@@ -1,9 +1,13 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+# More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
+
 name: Build and deploy Python app to Azure Web App - labtif-instaapp
 
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 jobs:
@@ -39,19 +43,9 @@ jobs:
             release.zip
             !venv/
 
-  serve-index:
-    runs-on: ubuntu-latest
-
-    needs:
-      - build  # Garante que 'build' seja concluído antes de iniciar 'serve-index'
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
   deploy:
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: build
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
@@ -65,10 +59,12 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
+      
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
           app-name: 'labtif-instaapp'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3BB9B14E }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_45638E8B91984ED7A8F9850ADEA15C6B }}
+
