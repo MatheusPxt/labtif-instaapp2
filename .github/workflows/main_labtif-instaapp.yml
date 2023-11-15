@@ -49,15 +49,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Start a simple HTTP server
-        run: |
-          python -m http.server 8000
-        working-directory: ${{ github.workspace }}
-
-      - name: Make a curl request to the local server
-        run: |
-          curl http://localhost:8000/index.html
-
   deploy:
     runs-on: ubuntu-latest
     needs: [build, serve-index]
