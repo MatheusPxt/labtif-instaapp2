@@ -80,4 +80,4 @@ jobs:
         with:
           app-name: 'labtif-instaapp'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3BB9B14E
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3BB9B14E }}
